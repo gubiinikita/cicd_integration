@@ -46,11 +46,11 @@ jobs:
       - store_test_results:
           path: results
 
-  workflows:
-    version: 2
-    full:
-      jobs:
-        - build
-        - test:
-            requires:
-              - build
+workflows:
+   version: 2
+   full:
+     jobs:
+       - build
+       - test:
+           requires:
+             - build
