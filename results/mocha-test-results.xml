@@ -2,9 +2,9 @@
 <testsuites name="Mocha Tests" time="0.003" tests="4" failures="1">
   <testsuite name="" timestamp="2023-10-23T11:03:01" tests="0" time="0.000" failures="0">
   </testsuite>
-  <testsuite name="Root Suite.files" timestamp="2023-10-23T11:03:01" tests="0" file="/Users/clear/Work data/QAA/cicd_integration/test/test.js" time="0.000" failures="0">
+  <testsuite name="Root Suite.files" timestamp="2023-10-23T11:03:01" tests="0" file="/Users/clear/Work data/QAA/cicd_integration/test/test1.js" time="0.000" failures="0">
   </testsuite>
-  <testsuite name="Root Suite.files.export" timestamp="2023-10-23T11:03:01" tests="4" file="/Users/clear/Work data/QAA/cicd_integration/test/test.js" time="0.002" failures="1">
+  <testsuite name="Root Suite.files.export" timestamp="2023-10-23T11:03:01" tests="4" file="/Users/clear/Work data/QAA/cicd_integration/test/test1.js" time="0.002" failures="1">
     <testcase name="should export pdf" time="0.001" classname="files.export">
     </testcase>
     <testcase name="should export html" time="0.000" classname="files.export">
@@ -13,7 +13,7 @@
     </testcase>
     <testcase name="should export text" time="0.000" classname="files.export">
       <failure message="An exception occurred" type="Error"><![CDATA[Error: An exception occurred
-    at Context.<anonymous> (test/test.js:20:13)
+    at Context.<anonymous> (test/test1.js:20:13)
     at process.processImmediate (node:internal/timers:475:21)]]></failure>
     </testcase>
   </testsuite>
