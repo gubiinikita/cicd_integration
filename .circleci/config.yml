@@ -78,4 +78,6 @@ workflows:
            requires:
              - build
        - notify:
+           requires:
+             - test
            context: slack-secrets
