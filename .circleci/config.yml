@@ -1,6 +1,7 @@
 # .circleci/config.yml
 version: 2.1
-
+orbs:
+  slack: circleci/slack@4.9.3
 jobs:
   build:
     docker:
@@ -46,6 +47,28 @@ jobs:
       - store_test_results:
           path: results
 
+  notify:
+    docker:
+      - image: 'cimg/base:stable'
+    steps:
+      - slack/notify:
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "plain_text",
+                      "text": "*This is a text notification*",
+                      "emoji": true
+                    }
+                  ]
+                }
+              ]
+            }
+          event: always
+
 workflows:
    version: 2
    full:
@@ -54,3 +77,5 @@ workflows:
        - test:
            requires:
              - build
+       - notify:
+           context: slack-secrets

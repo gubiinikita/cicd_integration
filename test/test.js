@@ -20,6 +20,4 @@ describe('files', function () {
     //   throw new Error('An exception occurred');
     // });
   });
-
-  // [..]
 });
