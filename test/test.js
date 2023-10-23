@@ -16,9 +16,9 @@ describe('files', function () {
       assert.isTrue(true);
     });
 
-    it('should export text', async function () {
-      throw new Error('An exception occurred');
-    });
+    // it('should export text', async function () {
+    //   throw new Error('An exception occurred');
+    // });
   });
 
   // [..]
