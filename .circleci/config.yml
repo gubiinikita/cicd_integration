@@ -1,4 +1,4 @@
-# .circleci/config.yml 1234
+# .circleci/config.yml
 version: 2.1
 
 jobs:
@@ -7,4 +7,50 @@ jobs:
       - image: cimg/node:current
     steps:
       - checkout
-      - run: node --version
+
+      # Restore previous node package cache if there is one
+      - restore_cache:
+          key: node-{{ checksum "package-lock.json" }}
+
+      # Install or update packages
+      - run: npm ci
+
+      # Save cache
+      - save_cache:
+          key: node-{{ checksum "package-lock.json" }}
+          paths:
+            - ~/.npm
+
+      # Store project files for the next job
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - project
+
+  test:
+    docker:
+      - image: cimg/node:current
+
+    steps:
+      # Start with the initial build
+      - attach_workspace:
+          at: ~/
+
+      # Run tests and save JUnit XML file
+      - run: npm run mocha-junit
+
+      # Store test artifacts and results
+      - store_artifacts:
+          path: results
+          destination: test_results
+      - store_test_results:
+          path: results
+
+  workflows:
+    version: 2
+    full:
+      jobs:
+        - build
+        - test:
+            requires:
+              - build
