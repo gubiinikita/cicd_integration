@@ -59,35 +59,20 @@ jobs:
           event: pass
           template: success_tagged_deploy_1
 
-
 workflows:
-  version: 2
-  full:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
-          # Add the `when` condition to notify only on failure
-          when: on_fail
-      - slack/notify:
-          # Trigger the Slack notification job when the `test` job fails
-          requires:
-            - test
-          # Use the `fail` event to trigger only on test failures
-          event: fail
-          mentions: '@here'
-          template: basic_fail_1
-
-#workflows:
-#   version: 2
-#   full:
-#     jobs:
-#       - build
-#       - test:
-#           requires:
-#             - build
-#       - notify:
-#           requires:
-#             - test
-#           context: slack-secrets
+   version: 2
+   full:
+     jobs:
+       - build
+       - test:
+           requires:
+             - build
+           context: slack-secrets
+           post-steps:
+             - slack/notify:
+                 event: fail
+                 template: basic_fail_1
+       - notify:
+           requires:
+             - test
+           context: slack-secrets
