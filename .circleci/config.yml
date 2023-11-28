@@ -47,17 +47,17 @@ jobs:
       - store_test_results:
           path: results
 
-  notify:
-    docker:
-      - image: 'cimg/base:stable'
-    steps:
-      - slack/notify:
-          event: fail
-          mentions: '@here'
-          template: basic_fail_1
-      - slack/notify:
-          event: pass
-          template: success_tagged_deploy_1
+#  notify:
+#    docker:
+#      - image: 'cimg/base:stable'
+#    steps:
+#      - slack/notify:
+#          event: fail
+#          mentions: '@here'
+#          template: basic_fail_1
+#      - slack/notify:
+#          event: pass
+#          template: success_tagged_deploy_1
 
 workflows:
    version: 2
@@ -72,9 +72,13 @@ workflows:
                  event: fail
                  mentions: '@here'
                  template: basic_fail_1
+                 context: slack-secrets
              - slack/notify:
                  event: pass
                  template: success_tagged_deploy_1
+                 context: slack-secrets
+
+
 
 
 
