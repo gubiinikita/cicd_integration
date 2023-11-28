@@ -71,6 +71,7 @@ workflows:
            post-steps:
              - slack/notify:
                  event: fail
+                 mentions: '@here'
                  template: basic_fail_1
        - notify:
            requires:
