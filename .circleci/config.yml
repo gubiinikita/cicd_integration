@@ -52,7 +52,7 @@ jobs:
       - image: 'cimg/base:stable'
     steps:
       - slack/notify:
-          event: always
+          event: fail
           mentions: '@here'
           template: basic_fail_1
       - slack/notify:
@@ -67,6 +67,7 @@ workflows:
        - test:
            requires:
              - build
+           on_fail: notify  # Trigger notify job if test job fails
        - notify:
            requires:
              - test
