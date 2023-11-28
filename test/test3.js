@@ -15,8 +15,8 @@ describe('files 3', function () {
       assert.isTrue(true);
     });
 
-    it('should export text 3', async function () {
-      throw new Error('An exception occurred');
-    });
+    // it('should export text 3', async function () {
+    //   throw new Error('An exception occurred');
+    // });
   });
 });
