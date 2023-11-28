@@ -53,6 +53,7 @@ jobs:
     steps:
       - slack/notify:
           event: fail
+          mentions: '@here'
           template: basic_fail_1
       - slack/notify:
           event: pass
@@ -67,6 +68,6 @@ workflows:
            requires:
              - build
        - notify:
-           requires:
-             - test
+#           requires:
+#             - test
            context: slack-secrets
