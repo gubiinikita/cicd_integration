@@ -52,7 +52,7 @@ jobs:
       - image: 'cimg/base:stable'
     steps:
       - slack/notify:
-          event: fail
+          event: failed
           mentions: '@here'
           template: basic_fail_1
       - slack/notify:
