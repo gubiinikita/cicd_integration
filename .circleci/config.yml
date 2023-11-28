@@ -67,8 +67,14 @@ workflows:
        - test:
            requires:
              - build
-           notify:
-             context: slack-secrets
+           post-steps:
+             - slack/notify:
+                 event: fail
+                 mentions: '@here'
+                 template: basic_fail_1
+             - slack/notify:
+                 event: pass
+                 template: success_tagged_deploy_1
 
 
 
