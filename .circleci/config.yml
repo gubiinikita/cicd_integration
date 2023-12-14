@@ -37,8 +37,7 @@ jobs:
       - attach_workspace:
           at: ~/
 
-      # Run tests and save JUnit XML file
-      - run: npm run mocha-junit
+      - run: npm test
 
       # Store test artifacts and results
       - store_artifacts:

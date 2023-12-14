@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "mocha": "npx mocha",
-    "mocha-junit": "npx mocha --reporter node_modules/mocha-junit-reporter --reporter-options jenkinsMode=1,outputs=1,mochaFile=results/mocha-test-results.xml"
+    "mocha-junit": "npx mocha --reporter node_modules/mocha-junit-reporter --reporter-options jenkinsMode=1,outputs=1,mochaFile=results/mocha-test-results.xml",
+    "test": "node main.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "mocha": "^10.2.0",
     "mocha-junit-reporter": "^2.2.1",
     "wdio-reportportal-reporter": "7.6.0",
-    "wdio-reportportal-service": "7.3.1"
+    "wdio-reportportal-service": "7.3.1",
+    "@reportportal/agent-js-mocha": "5.0.3"
   }
 }
