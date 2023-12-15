@@ -37,6 +37,7 @@ jobs:
       - attach_workspace:
           at: ~/
 
+      # Run tests
       - run: npm test
 
       # Store test artifacts and results

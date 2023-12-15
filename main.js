@@ -5,14 +5,13 @@ const mochaMain = new Mocha({
   reporterOptions: {
     endpoint: 'https://rtportal.devopdata.co/api/v1',
     apiKey: 'cccfcc8e-eb46-4121-9cf3-2f06d470196e',
-    launch: 'Test report',
+    launch: 'I wanna fail',
     project: 'mykyta_test_project',
-    description: 'Mykyta tries to build cicd pipline',
+    description: 'Who cares about those descriptions?',
   },
   timeout: 250000,
 });
 
-// run tests
 try {
   mochaMain.files = [
     'spec/attributesTest.spec.js',
