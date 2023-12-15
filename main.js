@@ -5,7 +5,7 @@ const mochaMain = new Mocha({
   reporterOptions: {
     endpoint: 'https://rtportal.devopdata.co/api/v1',
     apiKey: 'cccfcc8e-eb46-4121-9cf3-2f06d470196e',
-    launch: 'I wanna fail',
+    launch: "I'll never fail",
     project: 'mykyta_test_project',
     description: 'Who cares about those descriptions?',
   },
